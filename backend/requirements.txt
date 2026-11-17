@@ -1,0 +1,25 @@
+# --- Framework principal ---
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+
+# --- ORM & Base de données ---
+SQLAlchemy==2.0.35
+psycopg2-binary==2.9.9       # Prêt pour PostgreSQL (prod)
+alembic==1.13.2              # Migrations futures
+
+# --- Validation & Settings ---
+pydantic==2.9.2
+pydantic-settings==2.5.2
+email-validator==2.2.0       # Validation email Pydantic
+
+# --- Sécurité / Auth ---
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1                # Fix compat passlib 1.7.4
+python-jose[cryptography]==3.3.0
+python-multipart==0.0.9      # Pour OAuth2 form data
+
+# --- Config ---
+python-dotenv==1.0.1
+
+# --- IA (préparation itérations futures) ---
+httpx==0.27.2                # Client HTTP async pour DeepSeek/Gemini
