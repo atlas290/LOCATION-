@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0A0806" media="(prefers-color-scheme: dark)">
+  <title>Politique de Confidentialité — LOCATION</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <div class="legal-page">
+
+    <header class="page-header">
+      <a href="index.html" class="page-header__back" aria-label="Retour à l'accueil">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+      </a>
+      <a href="index.html" class="page-header__brand" aria-label="LOCATION — Accueil">
+        <img class="page-header__logo logo-light" src="assets/images/logo-noir.png" alt="" width="100" height="26">
+        <img class="page-header__logo logo-dark" src="assets/images/logo-blanc.png" alt="" width="100" height="26">
+      </a>
+      <div style="width: 44px;" aria-hidden="true"></div>
+    </header>
+
+    <main class="legal-content">
+
+      <div class="legal-hero">
+        <h1 class="legal-h1">Politique de Confidentialité</h1>
+        <p class="legal-meta">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          Dernière mise à jour : Novembre 2024
+        </p>
+      </div>
+
+      <p class="legal-intro">
+        Chez LOCATION, la protection de vos données est une priorité. Cette politique
+        explique quelles informations nous collectons, comment nous les utilisons,
+        et comment nous les protégeons dans le cadre de notre engagement anti-arnaque.
+      </p>
+
+      <section class="legal-section">
+        <h2 class="legal-h2"><span class="legal-h2-number">1.</span>Données collectées</h2>
+        <p class="legal-text">
+          Nous collectons uniquement les données nécessaires au bon fonctionnement du service :
+        </p>
+        <ul class="legal-list">
+          <li><strong>Identité :</strong> nom, prénom, numéro de téléphone, adresse email.</li>
+          <li><strong>Annonces :</strong> photos, descriptions, prix, localisation (ville, quartier, GPS).</li>
+          <li><strong>Transactions :</strong> historique des abonnements (via un agrégateur de paiement sécurisé).</li>
+          <li><strong>Technique :</strong> adresse IP, type d'appareil, données de navigation anonymisées.</li>
+        </ul>
+        <p class="legal-text">
+          Nous ne collectons <strong>jamais</strong> vos identifiants bancaires complets :
+          les paiements sont traités par des prestataires certifiés (MTN, Moov, Celtiis, Visa/Mastercard).
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2 class="legal-h2"><span class="legal-h2-number">2.</span>Utilisation des données</h2>
+        <p class="legal-text">
+          Vos données sont utilisées exclusivement pour :
+        </p>
+        <ul class="legal-list">
+          <li>Créer et sécuriser votre compte.</li>
+          <li>Permettre aux locataires de vous contacter via la messagerie.</li>
+          <li>Vérifier les annonces et lutter contre la fraude.</li>
+          <li>Vous envoyer des notifications liées à votre compte ou vos transactions.</li>
+          <li>Améliorer la plateforme et détecter les comportements suspects.</li>
+        </ul>
+        <p class="legal-text">
+          Nous ne revendons <strong>jamais</strong> vos données à des tiers à des fins publicitaires.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2 class="legal-h2"><span class="legal-h2-number">3.</span>Partage des données</h2>
+        <p class="legal-text">
+          Vos données peuvent être partagées uniquement dans ces cas précis :
+        </p>
+        <ul class="legal-list">
+          <li><strong>Avec les autres utilisateurs :</strong> uniquement les informations que vous rendez publiques (nom d'affichage, annonces, quartier).</li>
+          <li><strong>Avec nos prestataires techniques :</strong> hébergeur, agrégateur de paiement, service SMS/email.</li>
+          <li><strong>Aux autorités compétentes :</strong> en cas de réquisition légale ou de signalement d'arnaque avéré.</li>
+        </ul>
+      </section>
+
+      <section class="legal-section">
+        <h2 class="legal-h2"><span class="legal-h2-number">4.</span>Sécurité</h2>
+        <p class="legal-text">
+          La sécurité de vos données est au cœur de notre mission anti-arnaque. Nous
+          mettons en place les mesures suivantes :
+        </p>
+        <ul class="legal-list">
+          <li><strong>Chiffrement HTTPS</strong> sur l'ensemble du site.</li>
+          <li><strong>Chiffrement des mots de passe</strong> avec algorithme modernes (bcrypt).</li>
+          <li><strong>Aucune donnée bancaire stockée</strong> sur nos serveurs.</li>
+          <li><strong>Surveillance continue</strong> des tentatives d'intrusion.</li>
+          <li><strong>Vérification manuelle</strong> de chaque annonce avant publication.</li>
+          <li><strong>Sauvegardes chiffrées</strong> et accès restreint aux administrateurs.</li>
+        </ul>
+        <p class="legal-text">
+          En cas de faille de sécurité avérée, nous nous engageons à vous notifier
+          dans les <strong>72 heures</strong>.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2 class="legal-h2"><span class="legal-h2-number">5.</span>Vos droits</h2>
+        <p class="legal-text">
+          Conformément au RGPD et aux lois béninoises sur la protection des données,
+          vous disposez des droits suivants :
+        </p>
+        <ul class="legal-list">
+          <li><strong>Droit d'accès :</strong> consulter toutes vos données personnelles.</li>
+          <li><strong>Droit de rectification :</strong> corriger toute information inexacte.</li>
+          <li><strong>Droit à l'effacement :</strong> supprimer votre compte et vos données.</li>
+          <li><strong>Droit à la portabilité :</strong> récupérer vos données dans un format lisible.</li>
+          <li><strong>Droit d'opposition :</strong> refuser certains traitements non essentiels.</li>
+        </ul>
+        <p class="legal-text">
+          Pour exercer ces droits, contactez-nous à
+          <a href="mailto:privacy@location.bj" style="color: var(--text-primary); font-weight: 600;">privacy@location.bj</a>.
+          Nous répondons sous 30 jours maximum.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2 class="legal-h2"><span class="legal-h2-number">6.</span>Cookies</h2>
+        <p class="legal-text">
+          LOCATION utilise des cookies techniques <strong>strictement nécessaires</strong>
+          au fonctionnement du service :
+        </p>
+        <ul class="legal-list">
+          <li><strong>Session :</strong> maintien de votre connexion.</li>
+          <li><strong>Préférences :</strong> mode clair/sombre, langue.</li>
+          <li><strong>Sécurité :</strong> protection contre les attaques CSRF.</li>
+        </ul>
+        <p class="legal-text">
+          Nous n'utilisons <strong>aucun cookie publicitaire</strong> ni aucun tracker
+          tiers à des fins de profilage commercial. Vous pouvez à tout moment effacer
+          vos cookies via les paramètres de votre navigateur.
+        </p>
+      </section>
+
+    </main>
+
+    <footer class="legal-footer">
+      <p class="legal-footer__title">Autres documents légaux</p>
+      <nav class="legal-footer__links" aria-label="Documents légaux">
+        <a href="cgu.html" class="legal-footer__link">
+          Conditions Générales d'Utilisation
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+        <a href="mentions-legales.html" class="legal-footer__link">
+          Mentions légales
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+      </nav>
+      <p class="legal-footer__copyright">© 2024 LOCATION Cotonou, Bénin</p>
+    </footer>
+
+  </div>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>

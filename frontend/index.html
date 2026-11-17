@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0A0806" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="LOCATION — Trouvez un logement au Bénin, sans arnaque.">
+  <title>LOCATION — Trouvez votre chez-vous</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ================= SPLASH ================= -->
+  <div id="splash-screen" aria-hidden="true">
+    <div class="splash__inner">
+      <img class="splash__logo logo-light"
+           src="assets/images/logo-noir.png"
+           alt="" width="120" height="120">
+      <img class="splash__logo logo-dark"
+           src="assets/images/logo-blanc.png"
+           alt="" width="120" height="120">
+    </div>
+  </div>
+
+  <!-- ================= LANDING ================= -->
+  <main class="landing">
+    <div class="landing__brand">
+      <a href="index.html" aria-label="LOCATION — Accueil">
+        <img class="landing__logo logo-light"
+             src="assets/images/logo-noir.png"
+             alt="" width="140" height="40">
+        <img class="landing__logo logo-dark"
+             src="assets/images/logo-blanc.png"
+             alt="" width="140" height="40">
+      </a>
+    </div>
+
+    <section class="landing__hero">
+      <h1 class="landing__title">Trouvez votre chez-vous,<br>sans arnaque.</h1>
+      <p class="landing__subtitle">
+        LOCATION met en relation locataires et propriétaires au Bénin.
+        Des logements vérifiés, des prix transparents, zéro mauvaise surprise 
+        pour les deux côtés de la visite.
+      </p>
+    </section>
+
+    <nav class="landing__actions" aria-label="Choix du profil">
+      <a href="locataire.html" class="btn btn--primary btn--lg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/>
+          <path d="m20 20-3.5-3.5"/>
+        </svg>
+        Je cherche un logement
+      </a>
+
+      <a href="proprietaire.html" class="btn btn--outline btn--lg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1Z"/>
+        </svg>
+        Je suis propriétaire / Agence
+      </a>
+    </nav>
+  </main>
+
+  <script src="js/app.js" defer></script>
+
+<!-- Footer légal (à ajouter juste avant </body> dans index.html) -->
+  <footer style="padding: 24px 16px; text-align: center; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 48px;">
+    <p style="margin-bottom: 12px;">© 2024 LOCATION Cotonou, Bénin</p>
+    <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+      <a href="cgu.html" style="color: var(--text-muted); text-decoration: none;">CGU</a>
+      <a href="mentions-legales.html" style="color: var(--text-muted); text-decoration: none;">Mentions légales</a>
+      <a href="confidentialite.html" style="color: var(--text-muted); text-decoration: none;">Confidentialité</a>
+    </div>
+  </footer>
+
+</body>
+</html>

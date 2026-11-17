@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0A0806" media="(prefers-color-scheme: dark)">
+  <title>Rechercher un logement — LOCATION</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/components.css">
+  <!-- Page spécifique -->
+  <link rel="stylesheet" href="css/recherche.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="page-header search-page-header">
+    <a href="locataire.html" class="page-header__back" aria-label="Retour">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+    </a>
+
+    <a href="index.html" class="page-header__brand" aria-label="LOCATION — Accueil">
+      <img class="page-header__logo logo-light" src="assets/images/logo-noir.png" alt="" width="100" height="26">
+      <img class="page-header__logo logo-dark" src="assets/images/logo-blanc.png" alt="" width="100" height="26">
+    </a>
+
+    <div class="search-page-header__spacer" aria-hidden="true"></div>
+  </header>
+
+  <main class="search-page" id="search-page">
+
+    <!-- ZONE HERO (état initial) -->
+    <section class="search-hero" id="search-hero">
+
+      <h1 class="search-hero__title">Trouvez votre chez-vous.</h1>
+
+      <form class="search-bar-hero" role="search" id="search-form" autocomplete="off">
+        <svg class="search-bar-hero__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/>
+          <path d="m20 20-3.5-3.5"/>
+        </svg>
+
+       
+      <input
+  type="text"
+  inputmode="search"
+  id="search-input"
+  name="q"
+  class="search-bar-hero__input"
+  placeholder="Chambre à Calavi, max 30 000 FCFA..."
+  aria-label="Rechercher un logement">
+
+        <button type="button" class="search-bar-hero__mic" aria-label="Recherche vocale">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="9" y="3" width="6" height="12" rx="3"/>
+            <path d="M5 11a7 7 0 0 0 14 0"/>
+            <line x1="12" y1="18" x2="12" y2="22"/>
+          </svg>
+        </button>
+      </form>
+
+      <div class="search-suggestions" aria-label="Suggestions de recherche">
+        <button type="button" class="search-suggestion">Chambre Calavi</button>
+        <button type="button" class="search-suggestion">Studio Akpakpa</button>
+        <button type="button" class="search-suggestion">Villa</button>
+      </div>
+
+    </section>
+
+    <!-- ZONE RÉSULTATS (cachée par défaut) -->
+    <section class="search-results" id="search-results-container" hidden>
+
+      <!-- Bandeau résumé IA -->
+      <div class="ai-summary" id="ai-summary-banner" role="status">
+        <div class="ai-summary__icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2c0 6-4 8-10 10 6 2 10 4 10 10 0-6 4-8 10-10-6-2-10-4-10-10z"/>
+          </svg>
+        </div>
+        <p class="ai-summary__text" id="ai-summary-text">
+          J'ai trouvé <strong>2 logements</strong> pour votre recherche.
+        </p>
+      </div>
+
+      <!-- Filtres rapides -->
+      <nav class="chip-row" aria-label="Filtres de type de bien">
+        <button type="button" class="chip is-active" aria-pressed="true">Tout</button>
+        <button type="button" class="chip" aria-pressed="false">Chambre</button>
+        <button type="button" class="chip" aria-pressed="false">Studio</button>
+        <button type="button" class="chip" aria-pressed="false">Appartement</button>
+        <button type="button" class="chip" aria-pressed="false">Maison</button>
+        <button type="button" class="chip" aria-pressed="false">Villa</button>
+      </nav>
+
+      <!-- État "Précisez votre recherche" (1 seul critère) -->
+      <div class="search-refine" id="search-refine" hidden>
+        <div class="search-refine__icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"/>
+            <path d="m20 20-3.5-3.5"/>
+            <line x1="8" y1="11" x2="14" y2="11"/>
+          </svg>
+        </div>
+        <h2 class="search-refine__title">Précisez votre recherche</h2>
+        <p class="search-refine__text" id="search-refine-text">
+          Ajoutez une ville (Calavi, Cotonou...) ou un budget maximum pour affiner les résultats.
+        </p>
+      </div>
+
+      <!-- Grille de cartes -->
+      <div class="card-grid" id="properties-grid">
+
+        <!-- CARTE 1 — PREMIUM -->
+        <article class="card-vertical"
+                 data-id="1" data-plan="premium" data-type="studio" data-city="cotonou" data-price="25000"
+                 aria-label="Studio moderne Akpakpa, Premium">
+          <div class="card-vertical__media">
+            <img class="card-vertical__img"
+                 src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80&auto=format&fit=crop"
+                 alt="Studio moderne à Akpakpa"
+                 width="400" height="300" loading="lazy">
+
+            <span class="badge badge--premium card-vertical__badge">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              Premium
+            </span>
+
+            <button class="card-vertical__fav" type="button" aria-label="Ajouter aux favoris" aria-pressed="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="card-vertical__body">
+            <div class="card-vertical__price">
+              <span class="card-vertical__price-amount">25 000</span>
+              <span class="card-vertical__price-unit">F CFA/mois</span>
+            </div>
+            <h3 class="card-vertical__title">Studio moderne avec eau</h3>
+            <div class="card-vertical__location">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Akpakpa, Cotonou</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARTE 2 — ACTIVE -->
+        <article class="card-vertical"
+                 data-id="2" data-plan="active" data-type="chambre" data-city="calavi" data-price="35000"
+                 aria-label="Chambre Calavi proche UAC, Active">
+          <div class="card-vertical__media">
+            <img class="card-vertical__img"
+                 src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&q=80&auto=format&fit=crop"
+                 alt="Chambre meublée proche UAC"
+                 width="400" height="300" loading="lazy">
+
+            <span class="badge badge--active card-vertical__badge">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/>
+              </svg>
+              Active
+            </span>
+
+            <button class="card-vertical__fav" type="button" aria-label="Ajouter aux favoris" aria-pressed="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="card-vertical__body">
+            <div class="card-vertical__price">
+              <span class="card-vertical__price-amount">35 000</span>
+              <span class="card-vertical__price-unit">F CFA/mois</span>
+            </div>
+            <h3 class="card-vertical__title">Chambre meublée proche UAC</h3>
+            <div class="card-vertical__location">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Calavi, Zogbadjè</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARTE 3 — FREE -->
+        <article class="card-vertical"
+                 data-id="3" data-plan="free" data-type="appartement" data-city="cotonou" data-price="45000"
+                 aria-label="Appartement Fidjrossè, vérifié">
+          <div class="card-vertical__media">
+            <img class="card-vertical__img"
+                 src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80&auto=format&fit=crop"
+                 alt="Appartement 2 chambres à Fidjrossè"
+                 width="400" height="300" loading="lazy">
+
+            <span class="badge badge--verified badge--sm card-vertical__badge">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5"/>
+              </svg>
+              Vérifié
+            </span>
+
+            <button class="card-vertical__fav" type="button" aria-label="Ajouter aux favoris" aria-pressed="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="card-vertical__body">
+            <div class="card-vertical__price">
+              <span class="card-vertical__price-amount">45 000</span>
+              <span class="card-vertical__price-unit">F CFA/mois</span>
+            </div>
+            <h3 class="card-vertical__title">Appartement 2 chambres</h3>
+            <div class="card-vertical__location">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Fidjrossè, Cotonou</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARTE 4 — FREE -->
+        <article class="card-vertical"
+                 data-id="4" data-plan="free" data-type="chambre" data-city="cotonou" data-price="20000"
+                 aria-label="Chambre simple Cotonou Centre, vérifiée">
+          <div class="card-vertical__media">
+            <img class="card-vertical__img"
+                 src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=600&q=80&auto=format&fit=crop"
+                 alt="Chambre simple à Cotonou Centre"
+                 width="400" height="300" loading="lazy">
+
+            <span class="badge badge--verified badge--sm card-vertical__badge">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5"/>
+              </svg>
+              Vérifié
+            </span>
+
+            <button class="card-vertical__fav" type="button" aria-label="Ajouter aux favoris" aria-pressed="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="card-vertical__body">
+            <div class="card-vertical__price">
+              <span class="card-vertical__price-amount">20 000</span>
+              <span class="card-vertical__price-unit">F CFA/mois</span>
+            </div>
+            <h3 class="card-vertical__title">Chambre simple, quartier calme</h3>
+            <div class="card-vertical__location">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Cotonou Centre</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- État vide -->
+      <div class="search-empty" id="search-empty" hidden>
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/>
+          <path d="m20 20-3.5-3.5"/>
+          <line x1="8" y1="11" x2="14" y2="11"/>
+        </svg>
+        <h2 class="search-empty__title">Aucun résultat</h2>
+        <p class="search-empty__text">Essayez avec d'autres mots-clés ou élargissez votre recherche.</p>
+      </div>
+
+    </section>
+
+  </main>
+
+ <script src="js/app.js" defer></script>
+<script src="js/recherche.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0A0806" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="LOCATION — Logements vérifiés à Cotonou.">
+  <title>Logements à Cotonou — LOCATION</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/chat.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <div class="page">
+    <header class="page-header">
+      <a href="index.html" class="page-header__back" aria-label="Retour à l'accueil">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </a>
+
+      <a href="index.html" class="page-header__brand" aria-label="LOCATION — Accueil">
+        <img class="page-header__logo logo-light" src="assets/images/logo-noir.png" alt="" width="100" height="26">
+        <img class="page-header__logo logo-dark" src="assets/images/logo-blanc.png" alt="" width="100" height="26">
+      </a>
+
+      <a href="profil.html" class="page-header__profile" aria-label="Mon profil">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+      </a>
+    </header>
+
+    <!-- ✅ TITRE CORRIGÉ (une seule div) -->
+    <div class="page-title-row">
+      <h1 class="page-title">Annonces récentes</h1>
+    </div>
+
+    <div class="card-grid">
+      <!-- CARTE 1 -->
+      <article class="card-vertical" data-id="2" aria-label="Chambre meublée proche UAC, Calavi">
+        <div class="card-vertical__media">
+          <img class="card-vertical__img" src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80&auto=format&fit=crop" alt="Studio moderne à Akpakpa" width="400" height="300" loading="lazy">
+          <span class="badge badge--verified badge--sm card-vertical__badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Vérifié
+          </span>
+          <button class="card-vertical__fav" type="button" aria-label="Ajouter aux favoris" aria-pressed="false">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z"/></svg>
+          </button>
+        </div>
+        <div class="card-vertical__body">
+          <div class="card-vertical__price">
+            <span class="card-vertical__price-amount">25 000</span>
+            <span class="card-vertical__price-unit">F CFA/mois</span>
+          </div>
+          <h3 class="card-vertical__title">Studio moderne avec eau</h3>
+          <div class="card-vertical__location">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Akpakpa, Cotonou</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARTE 2 -->
+<article class="card-vertical" data-id="2" aria-label="Chambre meublée proche UAC, Calavi">
+        <div class="card-vertical__media">
+          <img class="card-vertical__img" src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&q=80&auto=format&fit=crop" alt="Chambre meublée proche UAC" width="400" height="300" loading="lazy">
+          <span class="badge badge--verified badge--sm card-vertical__badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Vérifié
+          </span>
+          <button class="card-vertical__fav" type="button" aria-label="Ajouter aux favoris" aria-pressed="false">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z"/></svg>
+          </button>
+        </div>
+        <div class="card-vertical__body">
+          <div class="card-vertical__price">
+            <span class="card-vertical__price-amount">35 000</span>
+            <span class="card-vertical__price-unit">F CFA/mois</span>
+          </div>
+          <h3 class="card-vertical__title">Chambre meublée proche UAC</h3>
+          <div class="card-vertical__location">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Calavi, Zogbadjè</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARTE 3 -->
+     <article class="card-vertical" data-id="3" aria-label="Appartement 2 chambres, Fidjrossè">
+        <div class="card-vertical__media">
+          <img class="card-vertical__img" src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80&auto=format&fit=crop" alt="Appartement 2 chambres à Fidjrossè" width="400" height="300" loading="lazy">
+          <span class="badge badge--verified badge--sm card-vertical__badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Vérifié
+          </span>
+          <button class="card-vertical__fav" type="button" aria-label="Ajouter aux favoris" aria-pressed="false">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z"/></svg>
+          </button>
+        </div>
+        <div class="card-vertical__body">
+          <div class="card-vertical__price">
+            <span class="card-vertical__price-amount">45 000</span>
+            <span class="card-vertical__price-unit">F CFA/mois</span>
+          </div>
+          <h3 class="card-vertical__title">Appartement 2 chambres</h3>
+          <div class="card-vertical__location">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Fidjrossè, Cotonou</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARTE 4 -->
+      <article class="card-vertical" data-id="4" aria-label="Chambre simple, Cotonou Centre">
+        <div class="card-vertical__media">
+          <img class="card-vertical__img" src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=600&q=80&auto=format&fit=crop" alt="Chambre simple à Cotonou Centre" width="400" height="300" loading="lazy">
+          <span class="badge badge--verified badge--sm card-vertical__badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Vérifié
+          </span>
+          <button class="card-vertical__fav" type="button" aria-label="Ajouter aux favoris" aria-pressed="false">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z"/></svg>
+          </button>
+        </div>
+        <div class="card-vertical__body">
+          <div class="card-vertical__price">
+            <span class="card-vertical__price-amount">20 000</span>
+            <span class="card-vertical__price-unit">F CFA/mois</span>
+          </div>
+          <h3 class="card-vertical__title">Chambre simple, quartier calme</h3>
+          <div class="card-vertical__location">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Cotonou Centre</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav" aria-label="Navigation principale">
+    <a href="locataire.html" class="bottom-nav__item is-active" aria-current="page">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m16 8-2.5 5.5L8 16l2.5-5.5L16 8Z"/></svg>
+      <span>Explore</span>
+    </a>
+    <a href="recherche.html" class="bottom-nav__item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <span>Search</span>
+    </a>
+    <a href="favoris.html" class="bottom-nav__item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z"/></svg>
+      <span>Saved</span>
+    </a>
+    <a href="profil.html" class="bottom-nav__item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+      <span>Profil</span>
+    </a>
+  </nav>
+<script src="js/app.js" defer></script>
+<script src="js/recherche.js" defer></script>
+
+<!-- BOUTON FLOTTANT -->
+<button type="button" id="chat-open-btn" class="assistant-fab" aria-label="Ouvrir l'assistant IA">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+</button>
+
+<!-- OVERLAY CHAT -->
+<div class="chat-overlay" id="chat-overlay" hidden role="dialog" aria-modal="true" aria-label="Assistant IA LOCATION">
+  <header class="chat-header">
+    <div class="chat-header__title">
+      <span class="chat-header__badge" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </span>
+      <div class="chat-header__meta">
+        <p class="chat-header__name">Assistant LOCATION</p>
+        <p class="chat-header__status">En ligne · Recherche intelligente</p>
+      </div>
+    </div>
+    <div class="chat-header__actions">
+      <button type="button" class="chat-icon-btn" id="chat-reset-btn" aria-label="Réinitialiser">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+      <button type="button" class="chat-icon-btn" id="chat-close-btn" aria-label="Fermer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="chat-messages" id="chat-messages" role="log" aria-live="polite"></div>
+
+  <form class="chat-input-wrapper" id="chat-form" autocomplete="off">
+    <input type="text" class="chat-input" id="chat-input" placeholder="Décrivez le logement recherché…" aria-label="Message à l'assistant">
+    <button type="submit" class="chat-send-btn" aria-label="Envoyer">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22 11 13 2 9 22 2z"/></svg>
+    </button>
+  </form>
+</div>
+
+<script src="js/chat.js" defer></script>
+ 
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0A0806" media="(prefers-color-scheme: dark)">
+  <title>Publier une annonce — LOCATION</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Leaflet Map (OpenStreetMap) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- padding-bottom passé de 140px à 260px -->
+  <div class="page" style="padding-bottom: 260px;">
+
+    <!-- HEADER -->
+    <header class="page-header">
+      <a href="proprietaire.html" class="page-header__back" aria-label="Retour">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </a>
+      <span class="page-title" style="font-size: 18px;">Publier</span>
+      <div style="width: 44px;"></div>
+    </header>
+
+    <main>
+      <form id="publish-form" class="form-container">
+
+        <!-- MESSAGES CACHÉS -->
+        <div id="form-error" class="form-error" hidden></div>
+        <div id="form-success" class="form-notice" hidden></div>
+
+        <!-- SECTION MÉDIAS -->
+        <div class="form-group">
+          <label class="form-label">Médias du bien</label>
+
+          <label for="photo-input" class="photo-uploader">
+            <input type="file" id="photo-input" name="photos" class="form-input-file" accept="image/*" multiple>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            <span>Ajouter des photos</span>
+          </label>
+          <div id="photo-preview" class="photo-preview-grid"></div>
+
+          <hr style="border: 0; border-top: 1px solid var(--border); margin: 20px 0;">
+
+          <label class="form-label" for="video-input">Vidéo du bien (optionnel)</label>
+          <label for="video-input" class="photo-uploader" style="aspect-ratio: auto; padding: 24px 16px;">
+            <input type="file" id="video-input" name="video" accept="video/*" class="form-input-file">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 7l-7 5 7 5V7z"/>
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+            </svg>
+            <span>Ajouter une vidéo (max 60s)</span>
+          </label>
+          <small class="form-hint">Taille max : 50 Mo. Format : MP4.</small>
+          <div id="video-preview" class="photo-preview-grid" style="grid-template-columns: 1fr;"></div>
+        </div>
+
+        <!-- TITRE -->
+        <div class="form-group">
+          <label for="property-title" class="form-label">Titre de l'annonce</label>
+          <input type="text" id="property-title" name="title" class="form-input" placeholder="Ex: Studio moderne avec eau" required>
+        </div>
+
+        <!-- LIGNE : Type + Prix -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="property-type" class="form-label">Type de bien</label>
+            <select id="property-type" name="property_type" class="form-select" required>
+              <option value="">Sélectionner</option>
+              <optgroup label="Chambre">
+                <option value="chambre_sanitaire">Chambre (sanitaire)</option>
+                <option value="chambre_ordinaire">Chambre (ordinaire)</option>
+              </optgroup>
+              <optgroup label="Studio">
+                <option value="studio_sanitaire">Studio (sanitaire)</option>
+                <option value="studio_ordinaire">Studio (ordinaire)</option>
+              </optgroup>
+              <optgroup label="Maison">
+                <option value="maison_sanitaire">Maison (sanitaire)</option>
+                <option value="maison_ordinaire">Maison (ordinaire)</option>
+              </optgroup>
+              <option value="appartement">Appartement</option>
+              <option value="villa">Villa</option>
+              <option value="terrain">Terrain</option>
+              <option value="bureau">Bureau</option>
+              <option value="boutique">Boutique</option>
+              <option value="guest_house">Guest House</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="property-price" class="form-label">Prix (FCFA/mois)</label>
+            <input type="number" id="property-price" name="price" class="form-input" placeholder="Ex: 35000" min="0" required>
+          </div>
+        </div>
+
+        <!-- LIGNE : Ville + Quartier -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="property-city" class="form-label">Ville</label>
+            <input type="text" id="property-city" name="city" class="form-input" placeholder="Ex: Cotonou" required>
+          </div>
+          <div class="form-group">
+            <label for="property-district" class="form-label">Quartier</label>
+            <input type="text" id="property-district" name="district" class="form-input" placeholder="Ex: Akpakpa" required>
+          </div>
+        </div>
+
+        <!-- GPS -->
+        <div class="form-group">
+          <label class="form-label">Localisation exacte (GPS)</label>
+
+          <button type="button" id="btn-geoloc" class="btn-geoloc">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span id="btn-geoloc-text">Utiliser ma position actuelle</span>
+          </button>
+
+          <input type="hidden" id="latitude" name="latitude">
+          <input type="hidden" id="longitude" name="longitude">
+          <p id="geo-feedback" class="form-hint" style="color: var(--success-fg); font-weight: 600;" hidden>Position enregistrée !</p>
+
+          <div id="map-preview" style="height: 250px; width: 100%; border-radius: 12px; margin-top: 10px; border: 1px solid var(--border); z-index: 1;"></div>
+        </div>
+        <!-- ⚠️ NE PAS REMETTRE de </div> ici : c'était la source du bug -->
+
+        <!-- GOOGLE MAPS -->
+        <div class="form-group">
+          <label for="property-maps" class="form-label">Lien Google Maps (optionnel)</label>
+          <input type="url" id="property-maps" name="maps_link" class="form-input" placeholder="Collez le lien de partage Google Maps ici">
+        </div>
+
+        <!-- DESCRIPTION -->
+        <div class="form-group">
+          <label for="property-description" class="form-label">Description</label>
+          <textarea id="property-description" name="description" class="form-textarea" rows="4" placeholder="Décrivez votre bien en quelques lignes..." required></textarea>
+        </div>
+
+        <!-- COMMODITÉS -->
+        <div class="form-group">
+          <label class="form-label">Commodités</label>
+          <div class="amenities-grid">
+            <button type="button" class="chip" name="amenities" value="water" data-amenity="water">Eau incluse</button>
+            <button type="button" class="chip" name="amenities" value="electricity" data-amenity="electricity">Électricité</button>
+            <button type="button" class="chip" name="amenities" value="guard" data-amenity="guard">Gardien</button>
+            <button type="button" class="chip" name="amenities" value="ac" data-amenity="ac">Climatisation</button>
+            <button type="button" class="chip" name="amenities" value="wifi" data-amenity="wifi">Wi-Fi</button>
+            <button type="button" class="chip" name="amenities" value="furnished" data-amenity="furnished">Meublé</button>
+          </div>
+        </div>
+
+      </form>
+    </main>
+  </div>
+
+  <!-- BARRE D'ACTION FIXE -->
+  <div class="publish-bar">
+    <p class="publish-bar__hint">
+      Votre annonce sera vérifiée par un administrateur avant publication.
+    </p>
+    <button type="submit" form="publish-form" class="btn btn--primary btn--lg">
+      Publier mon annonce
+    </button>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/publish.js" defer></script>
+</body>
+</html>
