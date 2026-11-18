@@ -12,18 +12,19 @@ document.addEventListener('DOMContentLoaded', () => {
      0. SPLASH SCREEN (Animation de démarrage)
      ============================================================ */
   const splash = document.getElementById('splash-screen');
-  if (splash) {
-    document.body.classList.add('no-scroll');
-    
+if (splash) {
+  document.body.classList.add('no-scroll');
+  
+  // On attend 2 secondes (2000ms) pour que l'utilisateur voie le logo
+  setTimeout(() => {
+    splash.classList.add('is-hiding');
+    // On le retire complètement après l'animation de fondu
     setTimeout(() => {
-      splash.classList.add('is-hiding');
-      setTimeout(() => {
-        splash.remove();
-        document.body.classList.remove('no-scroll');
-      }, 300);
-    }, 1500);
-  }
-
+      splash.remove();
+      document.body.classList.remove('no-scroll');
+    }, 400); // 400ms correspond à la transition CSS
+  }, 2000); 
+}
   /* ============================================================
      1. GESTION DU THÈME (Mode Sombre / Clair)
      ============================================================ */
