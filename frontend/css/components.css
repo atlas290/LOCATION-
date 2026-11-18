@@ -2710,3 +2710,10 @@ a.property-item,
   border-color: var(--text-primary);
   font-weight: 600;
 }
+#splash-screen {
+  position: fixed; inset: 0; z-index: 9999;
+  background-color: var(--bg-base);
+  display: flex; justify-content: center; align-items: center;
+  transition: opacity 0.4s ease;
+}
+#splash-screen.is-hiding { opacity: 0; pointer-events: none; }
